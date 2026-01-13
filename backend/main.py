@@ -29,11 +29,26 @@ async def analyze_url(payload: AnalyzeRequest):
             status_code=400,
             detail="Invalid URL. Only HTTPS is allowed (use format: https://example.com/path)",
         )
+    # use the same scraper logic as /scrape
+    article = await run_in_threadpool(scrape_article_sync, str(payload.url))
+
+    # simple placeholder analysis based on the article text
+    text = article.text
+    words = text.split()
+    word_count = len(words)
+    char_count = len(text)
+
+    analysis = {
+        "word_count": word_count,
+        "char_count": char_count,
+        "is_long_article": word_count > 500,
+    }
 
     return {
         "status": "ok",
-        "message": "lets go...",
         "url": str(payload.url),
+        "article": article.dict(),
+        "analysis": analysis,
     }
 
 
