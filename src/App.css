@@ -1,9 +1,48 @@
+/* Full page layout */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.app-header-left {
+  max-width: 70%;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.app-tagline {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
 /* Layout for the main app container */
 .app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
   max-width: 480px;
-  margin: 0 auto;
+  width: 100%;
   padding: 2rem;
   text-align: center;
+}
+
+.app-container h1 {
+  font-size: 1.5rem;
 }
 
 .url-form {
@@ -51,4 +90,100 @@
 
 .message.success {
   color: #15803d;
+}
+
+.article-result {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.article-text {
+  white-space: pre-wrap;
+}
+
+.results-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .results-row {
+    flex-direction: column;
+  }
+}
+
+.app-header-right {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.auth-toggle {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #646cff;
+  background-color: #ffffff;
+  color: #646cff;
+  cursor: pointer;
+}
+
+.auth-toggle.active,
+.auth-toggle:hover {
+  background-color: #646cff;
+  color: #ffffff;
+}
+
+.auth-panel {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: rgb(125, 208, 230);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.auth-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.auth-field input {
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.auth-submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #22c55e;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-submit:hover {
+  background-color: #16a34a;
 }
